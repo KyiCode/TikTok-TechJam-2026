@@ -4,13 +4,13 @@
 
 Workshop: **28 August 2026, 1:00–1:45pm SGT**. Starter kit: <https://github.com/RrankPyramid/CodeJam>.
 
-## What you are actually being asked to make
+## Track summary and example products
 
 You receive a mostly working website where a user can create an AI coding Agent and ask it to work in a workspace. Your project is an **improvement behind or alongside that existing experience**: something that helps a person control, inspect, protect, or recover the Agent's actions.
 
-Think of middleware as the rules and records between a user clicking “run” and an Agent doing work. It is not the chat interface itself. A valid project could make the platform answer questions such as: “May this Agent access this file?”, “Why did this Run fail?”, “Who approved this action?”, “How do we stop an expensive Run?”, or “Which Agent acted next?” The organizers deliberately do not prescribe one answer.
+Think of middleware as the rules and records between a user clicking “run” and an Agent doing work. A valid project could make the platform answer questions such as: “May this Agent access this file?”, “Why did this Run fail?”, “Who approved this action?”, “How do we stop an expensive Run?”, or “Which Agent acted next?”
 
-For a mostly non-technical team, this track can work if one person can modify a TypeScript/React/Fastify starter repository. Others can define the user/Agent scenarios, draw the trust boundary, write policy cases, test expected allow/deny outcomes, and drive the demo. The essential technical proof is that the rule/record is enforced by backend or Runtime code, not just shown on a screen.
+Example product directions: a permission-and-approval gateway for Agent tools; a Run audit/trace explorer with redaction; a budget and rate-limit controller; or a coordinator that controls multiple Agents sharing a task. The essential proof is that the rule/record is enforced by backend or Runtime code, not just shown on a screen.
 
 ### What a valid project must visibly do
 

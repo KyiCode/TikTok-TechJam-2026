@@ -4,13 +4,13 @@
 
 Workshop: **28 August 2026, 2:00–2:45pm SGT**. The supplied brief was last updated **25 August 2026, 9:10pm**.
 
-## What you are actually being asked to make
+## Track summary and example products
 
 This is not a standard “make the best recommender model” challenge. You are asked to make an **agent that behaves like a junior ML researcher**. Given the provided recommender dataset and scoring program, it should inspect the data, write or alter experiment code, run it, read the results, decide what to try next, and repeat with little human help.
 
 The final quality of the recommender matters, but so does the evidence that the *agent* drove the improvement cycle. The judges expect a log showing each experiment's hypothesis, code change, metric result, and recovery from errors. A team that manually makes all changes and simply calls it an “agent” does not match the objective.
 
-This is a technically demanding track. At least one teammate should be able to run Python ML training, understand train/validation/test separation, and diagnose failures such as an out-of-memory error. Non-technical teammates can make a major contribution by creating the experiment-log template, checking evidence/claims, researching permitted published methods, documenting intervention count, and explaining the agent's decisions in the video.
+Example product directions: an experiment-planning agent that chooses the next change from results; a self-repairing agent that recovers from failed training jobs; or a research agent that improves features, training, and model choices while recording every decision. This is a technically demanding track: the team needs Python ML training, disciplined data separation, and failure diagnosis.
 
 ### What success looks like
 

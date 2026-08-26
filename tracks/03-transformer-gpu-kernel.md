@@ -4,13 +4,13 @@
 
 Workshop: **28 August 2026, 3:00–3:45pm SGT**.
 
-## What you are actually being asked to make
+## Track summary and example products
 
 You are handed a benchmark that performs part of a Transformer computation on a GPU. Your job is to replace some of that computation with your own faster GPU code, while returning nearly the same numerical answer. The deliverable is performance-engineering code and a measured report—not an AI product or an interface.
 
 An analogy: the organizer gives you a correct but generic factory machine; you redesign one internal station so it produces the same output faster on *your particular GPU*. You may create different internal paths for small and large input shapes, as long as all official tests stay within the stated error tolerance.
 
-This is the least appropriate track for a team without specialised technical support. You need a compatible GPU, a working PyTorch or TensorFlow environment, and someone able to work with CUDA/Triton or another low-level GPU approach. Non-technical teammates are valuable for clear benchmarking/reporting, but cannot replace ownership of the kernel implementation.
+Example product directions: a shape-aware attention kernel; a fused attention/softmax kernel; or a profiling-led optimization suite that selects a correct fast path by input shape. You need a compatible GPU, a working PyTorch or TensorFlow environment, and someone able to work with CUDA/Triton or another low-level GPU approach.
 
 ### What success looks like
 

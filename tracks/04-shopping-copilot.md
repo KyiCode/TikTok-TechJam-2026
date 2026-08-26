@@ -4,7 +4,7 @@
 
 Workshop: **28 August 2026, 4:00–4:45pm SGT**. Kit: <https://github.com/TechJam2026/techjam-conversational-search> and its [participant release](https://github.com/TechJam2026/techjam-conversational-search/releases/tag/participant-kit).
 
-## What you are actually being asked to make
+## Track summary and example products
 
 You are building the **brain behind a shopping conversation**, using a fixed catalog of 50,000 clothing/shoes/jewellery products. The evaluator simulates a shopper talking to your system. Your system must decide whether the person wants a precise purchase or is still browsing, remember/update their preferences across turns, search the catalog, and return/rank useful candidates.
 
@@ -15,7 +15,7 @@ The key distinction is:
 
 The evaluator has a hidden target product for each conversation. You score well by including it, ranking it highly, and reaching it in few turns. You do not make a webpage; the organizer tests the backend agent interface directly. A friendly chat response is not enough if the retrieval and ranked product output are wrong.
 
-For a mostly non-technical team, this can be a good product-thinking track only if someone can implement/run the supplied Python interface and evaluator. Others can contribute a catalogue of ambiguous shopper scenarios, define what information should be remembered/forgotten, analyse bad results, and create the system explanation and demo.
+Example product directions: an intent router that selects buying versus browsing retrieval; a hybrid lexical/category/vector search-and-reranking Agent; or a dialogue-state engine that handles preference changes and asks focused clarification questions. The team needs to implement and run the supplied Python Agent interface and evaluator.
 
 ### What success looks like
 

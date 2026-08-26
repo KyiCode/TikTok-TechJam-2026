@@ -36,40 +36,27 @@ You choose **one** track and build a small, working proof of concept for its pro
 
 If most of the team is not technical, that is still useful. A strong entry needs more than code: clear interpretation of user problems, evaluation design, test cases, documentation, a coherent demo story, research, and honest analysis of limitations. However, every track ultimately requires some functional code. Do not choose a track whose required technical core nobody on the team can build or learn with available time.
 
-### What each track means in everyday language
+### Official track names and plain-English summaries
 
-| Track | In plain English, you are being asked to make… | It is **not** asking you to make… |
+| Track | Official name | Summary | Example product directions (optional inspiration) |
 | --- | --- | --- |
-| 1 | An improvement to an existing AI-agent platform that makes agents safer, more controllable, or easier to understand | A new ChatGPT-like agent, a whole cloud platform, or merely a prettier interface |
-| 2 | An AI-assisted system that repeatedly improves recommender-system code and records what it tried | Just one recommendation model manually tuned by the team |
-| 3 | A faster low-level implementation of part of a Transformer on a graphics card | A general AI app, website, or ordinary model training project |
-| 4 | The decision-making backend for a shopping chatbot: understand the shopper, find products, ask useful questions, and rank results | A shopping website or visual UI; the judging is through automated API tests |
-| 5 | A detector that decides whether an image is AI-made and still works after social-media-style edits | A broad misinformation platform, video detector, or clean-image-only classifier |
+| 1 | Agent Launchpad: Design and Build Lightweight Agent Middleware | Add a functional safety, control, or observability layer to the supplied Agent platform. | Permission and approval gateway; Run audit timeline; budget guardrail; multi-Agent coordinator |
+| 2 | Autonomous Machine Learning Research Agent for Recommender Systems | Create an agent that runs, evaluates, and improves recommender-system experiments with minimal human intervention. | Experiment-planning agent; self-repairing training agent; feature-engineering and tuning agent |
+| 3 | Implement a GPU Kernel for a Transformer Layer | Replace part of a Transformer layer with a numerically correct, faster GPU implementation. | Shape-aware attention kernel; fused softmax/attention operation; performance profiler plus optimized kernel |
+| 4 | Shopping Copilot: AI Conversational Search and Recommendations | Create a backend shopping agent that understands intent, manages changing preferences, retrieves products, and ranks them efficiently. | Intent router; hybrid retrieval/reranking agent; conversational preference-state engine |
+| 5 | Robust Detection of AI-Generated Images Under Real-World Transformations | Create an image detector that remains useful after compression, blur, cropping, resize, and similar transformations. | Robust AIGC classifier; detector with confidence calibration; transformation-aware forensic ensemble |
 
-### How to choose when the team is mostly non-technical
+### How to choose based on team setup
 
 Start with the technical constraint, then use interest to break ties:
 
 - **Avoid Track 3** unless at least one person is comfortable with GPU programming/performance profiling and has usable GPU access. It is the most specialised option and the least suitable for learning from zero during a hackathon.
-- **Track 1** works when you have at least one web/backend developer. Non-technical teammates can define unsafe-agent scenarios, permission rules, user journeys, test cases, and the demo narrative.
+- **Track 1** works when you have at least one web/backend developer.
 - **Track 2** needs the deepest ML engineering. It is attractive if someone can run and modify Python ML experiments, but it is not simply “use an AI coding tool to make a recommender.” The autonomous iteration/logging requirement is central.
 - **Track 4** is often easier to explain as a product problem, but still needs someone who can work with Python APIs, search/ranking, and the supplied evaluator. UI skills do not directly earn points here.
 - **Track 5** can be approachable for a Python/CV learner because the task has a clear input/output and public data, but it still requires model training/inference and rigorous evaluation under transformations.
 
 For a team with limited technical experience, a narrow, reliable project on Track 1, 4, or 5 is usually easier to explain and validate than Tracks 2 or 3—**provided** the team has at least one person who can own the required code. This is a planning recommendation, not an organizer rule.
-
-### Useful non-coding responsibilities
-
-| Responsibility | Concrete contribution |
-| --- | --- |
-| Problem/product lead | Turn the brief into a one-sentence user problem and decide what proof would convince a judge |
-| Research lead | Find permitted methods/datasets, track sources/licences, and summarise trade-offs for the technical team |
-| Evaluation lead | Design test cases and result tables; check that claims match measured evidence |
-| Documentation lead | Maintain setup steps, architecture/flow diagrams, limitations, Devpost copy, and contribution record |
-| Demo/pitch lead | Write and rehearse a 2–3 minute story showing problem → working system → result → limitation |
-| QA lead | Run the project from a clean setup, try failure cases, check outputs, and look for secret leakage |
-
-Non-technical work should connect to evidence. For instance, “we researched user needs” is weak; “we defined ten realistic ambiguous shopping requests and used them to test dialogue-state changes” is useful.
 
 | Track | Main technical risk | Main judging risk | A strong team profile |
 | --- | --- | --- | --- |
@@ -89,6 +76,28 @@ Choose the track where the team can prove the core metric or behaviour early. A 
 4. **Protect the final day.** Reserve it for reproducibility, packaging, metrics tables, README, video rehearsal, and a clean-clone run.
 5. **Keep a claim/evidence map.** For every pitch claim, have a metric, automated test, output sample, trace, or demo step that proves it.
 6. **Document limitations plainly.** Be explicit about data scope, compute cost, known failure modes, and what would be needed for production. This supports feasibility rather than weakening the project.
+
+## Keep in mind — engineering hygiene (recommended, not organizer-mandated)
+
+These practices make a hackathon project more credible and easier to demo. Apply them proportionately; a focused prototype does not need enterprise-scale infrastructure.
+
+| Area | Practical standard to aim for |
+| --- | --- |
+| Tests | Cover the core logic and all required failure/edge cases. A useful target is **70%+ coverage** for code you own, with higher confidence in critical paths; coverage is a signal, not a substitute for meaningful tests. |
+| Test layers | Use fast unit tests for business logic, integration tests for API/model/data boundaries, and at least one end-to-end happy path that mirrors the demo/evaluator. |
+| Inputs and errors | Validate inputs at system boundaries; return useful errors; set timeouts; avoid unbounded retries; handle missing files, bad data, model/API failures, and resource exhaustion. |
+| Authentication and authorization | If users, protected data, or external actions are in scope, authenticate identities and enforce authorization on the backend—not only in the UI. Use least privilege and a clear ownership model. |
+| Secrets | Put keys in environment variables or a secret manager; commit an `.env.example`, never real `.env` values; redact secrets from logs, screenshots, traces, and demo recordings. |
+| Data and privacy | Record data source/licence, keep train/validation/test separation, minimise sensitive data, and document retention/deletion behaviour if you store user or image data. |
+| Reproducibility | Pin dependencies, document environment/hardware, provide one command or short sequence to run, version datasets/models, record seeds/configuration, and state expected output. |
+| Observability | Use structured logs with request/run IDs, meaningful status/error messages, and basic timing/resource metrics. Never log raw sensitive data by default. |
+| Performance | Measure before optimising; report latency/throughput and memory/compute where relevant; use a baseline and repeatable methodology rather than one best-case run. |
+| Reliability | Make operations idempotent where practical, clean up temporary resources, define retry/backoff/cancel behaviour, and test a realistic failure or recovery path. |
+| Code quality | Keep modules small, name things clearly, format/lint/type-check where the stack supports it, remove dead code, and explain non-obvious decisions close to the code. |
+| API design | Define request/response schemas, version or stabilise public interfaces, validate contracts, and return predictable status codes/output shapes. |
+| Accessibility and UX | If a UI is in scope, use keyboard-accessible controls, readable contrast, loading/error states, and clear language. Do not spend time polishing UI where the track evaluates a headless backend. |
+| Documentation | README should cover purpose, architecture, prerequisites, setup, test/run commands, demo steps, metrics, limitations, licences, and team contributions. |
+| Delivery | Run the full test/evaluation path from a clean clone before recording the video; tag or note the exact commit demonstrated. |
 
 ## Submission-ready checklist
 
