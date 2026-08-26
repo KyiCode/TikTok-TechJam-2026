@@ -4,6 +4,24 @@
 
 Workshop: **28 August 2026, 1:00–1:45pm SGT**. Starter kit: <https://github.com/RrankPyramid/CodeJam>.
 
+## What you are actually being asked to make
+
+You receive a mostly working website where a user can create an AI coding Agent and ask it to work in a workspace. Your project is an **improvement behind or alongside that existing experience**: something that helps a person control, inspect, protect, or recover the Agent's actions.
+
+Think of middleware as the rules and records between a user clicking “run” and an Agent doing work. It is not the chat interface itself. A valid project could make the platform answer questions such as: “May this Agent access this file?”, “Why did this Run fail?”, “Who approved this action?”, “How do we stop an expensive Run?”, or “Which Agent acted next?” The organizers deliberately do not prescribe one answer.
+
+For a mostly non-technical team, this track can work if one person can modify a TypeScript/React/Fastify starter repository. Others can define the user/Agent scenarios, draw the trust boundary, write policy cases, test expected allow/deny outcomes, and drive the demo. The essential technical proof is that the rule/record is enforced by backend or Runtime code, not just shown on a screen.
+
+### What a valid project must visibly do
+
+1. Start from the supplied platform without breaking its basic Agent workflow.
+2. Let someone invoke a real Agent task from the frontend.
+3. Make a meaningful middleware decision/event during that path.
+4. Show evidence of it (for example a policy decision, audit record, trace, budget event, or recovery record).
+5. Show an adverse case: denied, failed, unsafe, degraded, or recovered.
+
+That is the core story. You do **not** need to implement every example in the problem statement.
+
 ## What is already supplied
 
 The starter kit includes React UI, Agent CRUD and lifecycle controls, Playground chat and asynchronous Run status, Fastify control plane and JSON persistence, persistent per-Agent workspaces, Codex CLI Runtime, local disposable containers, BytePlus ModelArk integration, and optional ECS deployment. The intended development/judging path is local Docker, Colima, or rootless Podman; ECS is optional and does not affect score.

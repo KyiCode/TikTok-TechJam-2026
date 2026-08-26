@@ -4,6 +4,26 @@
 
 Workshop: **28 August 2026, 4:00–4:45pm SGT**. Kit: <https://github.com/TechJam2026/techjam-conversational-search> and its [participant release](https://github.com/TechJam2026/techjam-conversational-search/releases/tag/participant-kit).
 
+## What you are actually being asked to make
+
+You are building the **brain behind a shopping conversation**, using a fixed catalog of 50,000 clothing/shoes/jewellery products. The evaluator simulates a shopper talking to your system. Your system must decide whether the person wants a precise purchase or is still browsing, remember/update their preferences across turns, search the catalog, and return/rank useful candidates.
+
+The key distinction is:
+
+- A **buying** request has hard requirements—e.g. a specific item/category/price/size—and should use precise filters.
+- A **browsing** request is exploratory—e.g. a vague situation or style—and should return diverse relevant possibilities or ask a useful clarifying question.
+
+The evaluator has a hidden target product for each conversation. You score well by including it, ranking it highly, and reaching it in few turns. You do not make a webpage; the organizer tests the backend agent interface directly. A friendly chat response is not enough if the retrieval and ranked product output are wrong.
+
+For a mostly non-technical team, this can be a good product-thinking track only if someone can implement/run the supplied Python interface and evaluator. Others can contribute a catalogue of ambiguous shopper scenarios, define what information should be remembered/forgotten, analyse bad results, and create the system explanation and demo.
+
+### What success looks like
+
+- The supplied evaluator can call your Agent and receive valid results.
+- The Agent reacts differently to precise buying vs exploratory browsing requests.
+- It correctly changes its “memory” when a shopper changes their mind.
+- It avoids wasting turns: it recommends when enough information exists and asks targeted questions when it does not.
+
 ## Core pillars expected by the brief
 
 1. **Intent routing and hybrid retrieval:** route buying requests to high-precision hard-constraint filtering; route browsing requests to diverse dense retrieval. Use in-memory multi-route retrieval across keyword, category, and vector similarity, then semantic ranking.

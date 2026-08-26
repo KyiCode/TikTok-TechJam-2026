@@ -30,6 +30,47 @@ Each track adds its own required artifacts. Do not treat a polished front end as
 
 ## Choosing a track
 
+### First: what are we actually submitting?
+
+You choose **one** track and build a small, working proof of concept for its problem. You do not need to build a company or a polished commercial product. The important thing is that the project does the central thing the track asks for, can be demonstrated, and has evidence that it works. In most tracks, this means a code repository, a short video, a written Devpost explanation, and track-specific results.
+
+If most of the team is not technical, that is still useful. A strong entry needs more than code: clear interpretation of user problems, evaluation design, test cases, documentation, a coherent demo story, research, and honest analysis of limitations. However, every track ultimately requires some functional code. Do not choose a track whose required technical core nobody on the team can build or learn with available time.
+
+### What each track means in everyday language
+
+| Track | In plain English, you are being asked to make… | It is **not** asking you to make… |
+| --- | --- | --- |
+| 1 | An improvement to an existing AI-agent platform that makes agents safer, more controllable, or easier to understand | A new ChatGPT-like agent, a whole cloud platform, or merely a prettier interface |
+| 2 | An AI-assisted system that repeatedly improves recommender-system code and records what it tried | Just one recommendation model manually tuned by the team |
+| 3 | A faster low-level implementation of part of a Transformer on a graphics card | A general AI app, website, or ordinary model training project |
+| 4 | The decision-making backend for a shopping chatbot: understand the shopper, find products, ask useful questions, and rank results | A shopping website or visual UI; the judging is through automated API tests |
+| 5 | A detector that decides whether an image is AI-made and still works after social-media-style edits | A broad misinformation platform, video detector, or clean-image-only classifier |
+
+### How to choose when the team is mostly non-technical
+
+Start with the technical constraint, then use interest to break ties:
+
+- **Avoid Track 3** unless at least one person is comfortable with GPU programming/performance profiling and has usable GPU access. It is the most specialised option and the least suitable for learning from zero during a hackathon.
+- **Track 1** works when you have at least one web/backend developer. Non-technical teammates can define unsafe-agent scenarios, permission rules, user journeys, test cases, and the demo narrative.
+- **Track 2** needs the deepest ML engineering. It is attractive if someone can run and modify Python ML experiments, but it is not simply “use an AI coding tool to make a recommender.” The autonomous iteration/logging requirement is central.
+- **Track 4** is often easier to explain as a product problem, but still needs someone who can work with Python APIs, search/ranking, and the supplied evaluator. UI skills do not directly earn points here.
+- **Track 5** can be approachable for a Python/CV learner because the task has a clear input/output and public data, but it still requires model training/inference and rigorous evaluation under transformations.
+
+For a team with limited technical experience, a narrow, reliable project on Track 1, 4, or 5 is usually easier to explain and validate than Tracks 2 or 3—**provided** the team has at least one person who can own the required code. This is a planning recommendation, not an organizer rule.
+
+### Useful non-coding responsibilities
+
+| Responsibility | Concrete contribution |
+| --- | --- |
+| Problem/product lead | Turn the brief into a one-sentence user problem and decide what proof would convince a judge |
+| Research lead | Find permitted methods/datasets, track sources/licences, and summarise trade-offs for the technical team |
+| Evaluation lead | Design test cases and result tables; check that claims match measured evidence |
+| Documentation lead | Maintain setup steps, architecture/flow diagrams, limitations, Devpost copy, and contribution record |
+| Demo/pitch lead | Write and rehearse a 2–3 minute story showing problem → working system → result → limitation |
+| QA lead | Run the project from a clean setup, try failure cases, check outputs, and look for secret leakage |
+
+Non-technical work should connect to evidence. For instance, “we researched user needs” is weak; “we defined ten realistic ambiguous shopping requests and used them to test dialogue-state changes” is useful.
+
 | Track | Main technical risk | Main judging risk | A strong team profile |
 | --- | --- | --- | --- |
 | 1 | Integrating a real middleware capability without breaking the starter platform | Building static UI rather than trusted-path behavior | Full-stack team able to test backend/runtime behavior |

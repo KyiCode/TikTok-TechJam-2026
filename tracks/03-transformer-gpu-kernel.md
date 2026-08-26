@@ -4,6 +4,20 @@
 
 Workshop: **28 August 2026, 3:00–3:45pm SGT**.
 
+## What you are actually being asked to make
+
+You are handed a benchmark that performs part of a Transformer computation on a GPU. Your job is to replace some of that computation with your own faster GPU code, while returning nearly the same numerical answer. The deliverable is performance-engineering code and a measured report—not an AI product or an interface.
+
+An analogy: the organizer gives you a correct but generic factory machine; you redesign one internal station so it produces the same output faster on *your particular GPU*. You may create different internal paths for small and large input shapes, as long as all official tests stay within the stated error tolerance.
+
+This is the least appropriate track for a team without specialised technical support. You need a compatible GPU, a working PyTorch or TensorFlow environment, and someone able to work with CUDA/Triton or another low-level GPU approach. Non-technical teammates are valuable for clear benchmarking/reporting, but cannot replace ownership of the kernel implementation.
+
+### What success looks like
+
+- The official script says the optimized layer is numerically close enough for every supplied shape.
+- Timing evidence shows it is faster than the reference, with method and hardware documented.
+- The report explains which optimisation was used and why it helped or did not help.
+
 ## What must work
 
 Download and use either the Torch benchmark (`torch_transformer_benchmark.py`) or TensorFlow benchmark (`tensorflow_transformer_benchmark.py`). You may alter the layer implementation and select different kernels/fusion strategies for different supplied shapes. Tests will include varying batch sizes, sequence lengths, and hidden dimensions; supplied test cases compare against the framework reference.

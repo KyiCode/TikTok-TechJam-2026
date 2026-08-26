@@ -4,6 +4,21 @@
 
 Workshop: **28 August 2026, 5:00–5:45pm SGT**.
 
+## What you are actually being asked to make
+
+Build a program that takes images and gives each one a confidence score for “this was AI-generated.” The difficult part is that an image can be compressed by a social platform, cropped for a profile, blurred, resized, or colour-adjusted before it reaches the detector. Your project must show that it still works reasonably after those changes—not only on untouched images.
+
+The required practical interface is simple: provide a script that receives a folder of images and writes a JSON file containing each `image_path` and its prediction (`pred`). The required scientific evidence is less simple: compare clean-image results with transformed-image results, then explain false alarms (real images predicted as AI) and misses (AI images predicted as real).
+
+This is a focused machine-learning task. It can be manageable for a team with one Python/CV-capable person because the input and output are clear and public datasets are suggested, but it still requires actual model inference/training and careful data separation. Non-technical members can manage data provenance/licences, construct realistic transformation test sets, label and analyse errors, and present the human impact of false positives.
+
+### What success looks like
+
+- The inference script handles a directory and produces the specified JSON output.
+- You can show a clean-versus-transformed comparison, not just a single accuracy number.
+- The model is below the 2B-parameter limit and validation images prohibited for training are kept out of training.
+- You understand and communicate when the detector should not be trusted.
+
 ## Official robustness target
 
 The organizer may evaluate a subset of these transformations:
